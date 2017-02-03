@@ -1,8 +1,10 @@
 body
 {
-	background:skyblue;
 	font-family:cursive;
+	background-image: url("../images/background.jpg");
+	background-position: center top;
 }
+label{color:white}
 h1
 {
 	font-family:aharoni;
@@ -27,6 +29,10 @@ select
 	padding:0.5em;
 	border:0.2em solid skyblue;
 }
+ul
+{
+	background:white;padding:2em;
+}
 li
 {
 	display:inline;
@@ -34,4 +40,12 @@ li
 a
 {
 	background:white;color:skyblue;padding:0.2em;text-decoration:none;
+}
+#nav
+{
+	position:fixed;
+	left:0px;
+	right:0px;
+	top:-16px;
+	opacity:0.9;
 }

@@ -6,9 +6,11 @@
 		<style>
 			body
 			{
-				background:skyblue;
 				font-family:cursive;
+				background-image: url("images/background.jpg");
+				background-position: center top;
 			}
+			label{color:white}
 			h1
 			{
 				font-family:aharoni;
@@ -33,6 +35,10 @@
 				padding:0.5em;
 				border:0.2em solid skyblue;
 			}
+			ul
+			{
+				background:white;padding:2em;
+			}
 			li
 			{
 				display:inline;
@@ -41,15 +47,25 @@
 			{
 				background:white;color:skyblue;padding:0.2em;text-decoration:none;
 			}
+			#nav
+			{
+				position:fixed;
+				left:0px;
+				right:0px;
+				top:-16px;
+				opacity:0.9
+}
 		</style>
 	</head>
 	<body>
 		<h1>Gamer's Paradise-Register</h1>
-		<ul>
-			<li><a href='home.html'>Home</a></li>
-			<li><a href='register.html'>Register</a></li>
-			<li><a href='login.html'>Login</a></li>
-		</ul>
+		<div id='nav'>
+			<ul>
+				<li><a href='home.html'>Home</a></li>
+				<li><a href='register.html'>Register</a></li>
+				<li><a href='login.html'>Login</a></li>
+			</ul>
+		</div>
 		<table cellspacing='20' cellpadding='2'>
 			<tr>
 				<td><label for='name'>Username:</label></td>
