@@ -1,0 +1,51 @@
+body
+{
+	font-family:cursive;
+	background-image: url("../images/background.jpg");
+	background-position: center top;
+}
+label{color:white}
+h1
+{
+	font-family:aharoni;
+	font-size:5em;color:white;
+	text-shadow:0.1em 0.1em 0em black;
+}
+input
+{
+	border-radius:0.4em;
+	border:none;
+	padding:0.5em;
+	border:0.2em solid skyblue;
+}
+input:focus
+{
+	border:0.2em solid blue;
+}
+select
+{
+	border-radius:0.4em;
+	border:none;
+	padding:0.5em;
+	border:0.2em solid skyblue;
+}
+ul
+{
+	background:white;padding:2em;
+}
+li
+{
+	display:inline;
+}
+a
+{
+	background:white;color:skyblue;padding:0.2em;text-decoration:none;
+}
+#nav
+{
+	position:fixed;
+	left:0px;
+	right:0px;
+	top:-16px;
+	opacity:0.9;
+}
