@@ -1,12 +1,16 @@
 body
 {
-	font-family:cursive;
-	background-image: url("../images/background.jpg");
+	background:skyblue;	font-family:cursive;
+	margin-top:10em;
+	background:url("../images/background.jpg");
 	background-position: center top;
+	overflow:auto;
+	color:black !important;
 }
-label{color:white}
+label{color:black}
 h1
 {
+	text-align:center;
 	font-family:aharoni;
 	font-size:5em;color:white;
 	text-shadow:0.1em 0.1em 0em black;
@@ -20,7 +24,7 @@ input
 }
 input:focus
 {
-	border:0.2em solid blue;
+	border:0.2em solid orange;
 }
 select
 {
@@ -47,5 +51,9 @@ a
 	left:0px;
 	right:0px;
 	top:-16px;
-	opacity:0.9;
+	opacity:0.9
+}
+table
+{
+	background:white;width:1200px;margin:auto;border-radius:5em;padding:2em;box-shadow:0.9em 0.9em 0em black;overflow:scroll;color:black !important;
 }
