@@ -2,7 +2,40 @@
 
 <html>
 	<head>
+	
 		<title>Gamer's Paradise</title>
+		<style>
+			.hidden
+			{
+				display:none;
+			}
+			.modal
+			{
+				background:white;
+				position:absolute;
+				z-index:20;
+				width:50%;
+				margin:auto;
+				top:0em;
+				
+			}
+			.black
+			{
+				background:rgba(0,0,0,0.7);
+				position:fixed;
+				top:0em;
+				left:0em;
+				right:0em;
+				bottom:0em;
+			}
+			.close
+			{
+				background:white;
+				color:red;
+				border:0em;
+				font-size:1em;
+			}
+		</style>	
 	</head>
 	<body style='background:skyblue;font-family:cursive;margin-top:10em;background:url("images/background.jpg");background-position: center top;overflow:auto'>
 		<h1 style='font-family:aharoni;font-size:5em;color:white;text-shadow:0.1em 0.1em 0em black;text-align:center'>Gamer's Paradise</h1>
@@ -41,7 +74,7 @@
 				</td>
 				<td>Comedy,Violence,Action,War,Open World,Sci-fi</td>
 				<td>2000</td>
-				<td><a href='buy.html' style='background:orange;color:white;text-decoration:none;padding:0.8em;'>Buy</a></td>
+				<td><button onclick='show()'>Buy</button></td>
 			</tr>
 			<tr>
 				<td colspan='2'>
@@ -145,5 +178,83 @@
 				<td><a href='buy.html' style='background:orange;color:white;text-decoration:none;padding:0.8em;'>Buy</a></td>
 			</tr>
 		</table>
+		<!-- modal -->
+		<table cellspacing='20' cellpadding='2' class='modal hidden'>
+			<tr>
+				<td><input type='button' value='Close X' onclick='show()' class='close'></td>
+			</tr>
+			<tr>
+				<td><label for='name'>Name:</label></td>
+				<td><input type='text' name='Name'></td>
+			</tr>
+			<tr>
+				<td><label for='name'>Address:</label></td>
+				<td><input type='text' name='Address'></td>
+			</tr>
+			<tr>
+				<td><label for='age'>Quantity</label></td>
+				<td><input type='number' min='1' max='100' name='Quantity'></td>
+			</tr>
+			<tr>
+				<td><label for='gender'>Payment Type:</label></td>
+				<td>
+					<select name='Payment Type'>
+						<option>Metrobank</option>
+						<option>BPI</option>
+						<option>Western Union</option>
+						<option>Cebuana Lhuilier</option>
+						<option>Smart</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for='gender'>Console Type:</label></td>
+				<td>
+					<select>
+						<option>Playstation 4</option>
+						<option>XBOX 360</option>
+						<option>PC</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type='button' value='Submit' onclick='display()' ></td>
+			</tr>
+		</table>
+		<div class='black hidden'></div>
 	</body>
+	<script>
+		var ctr = 0;
+		function show()
+		{
+			var modal = document.getElementsByClassName('modal')[0];
+			var black = document.getElementsByClassName('black')[0];
+			if (ctr === 0)
+			{
+				modal.className = 'modal show';
+				black.className = 'black show';
+				ctr = 1;
+			}
+			else 
+			{
+				modal.className = 'modal hidden';
+				black.className = 'black hidden';
+				ctr = 0;
+			}
+		}
+		function display()
+		{
+			var inputs = document.getElementsByTagName('input');
+			var message;
+			
+			document.getElementsByTagName('select').value;
+			
+			for (var i = 0; i<inputs.length;i++)
+			{
+				message += inputs[i].getAttribute('name')+":"+inputs[i].value+"\n";
+			}
+			alert(message);
+		}
+	</script>
 </html>
