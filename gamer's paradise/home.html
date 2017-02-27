@@ -74,7 +74,7 @@
 				</td>
 				<td>Comedy,Violence,Action,War,Open World,Sci-fi</td>
 				<td>2000</td>
-				<td><button onclick='show(2000)'>Buy</button></td>
+				<td><button onclick='show(2000,"Saints Row IV")'>Buy</button></td>
 			</tr>
 			<tr>
 				<td colspan='2'>
@@ -93,7 +93,7 @@
 				</td>
 				<td>Fantasy</td>
 				<td>1200</td>
-				<td><a href='buy.html' style='background:orange;color:white;text-decoration:none;padding:0.8em;'>Buy</a></td>
+				<td><button onclick='show(1200,"Assasins Creed")'>Buy</button></td>
 			</tr>
 			<tr>
 				<td colspan='2'>
@@ -113,7 +113,7 @@
 				</td>
 				<td>Action,Fantasy,</td>
 				<td>1200</td>
-				<td><a href='buy.html' style='background:orange;color:white;text-decoration:none;padding:0.8em;'>Buy</a></td>
+				<td><button onclick='show(1200,"Dead Rising")'>Buy</button></td>
 			</tr>
 			<tr>
 				<td colspan='2'>
@@ -132,7 +132,7 @@
 				</td>
 				<td>Hack and Slash,History,War</td>
 				<td>1200</td>
-				<td><a href='buy.html' style='background:orange;color:white;text-decoration:none;padding:0.8em;'>Buy</a></td>
+				<td><button onclick='show(1200,"Dynasty Warriors")'>Buy</button></td>
 			</tr>
 			<tr>
 				<td colspan='2'>
@@ -154,7 +154,7 @@
 				</td>
 				<td>Strategy,War,History</td>
 				<td>1200</td>
-				<td><a href='buy.html' style='background:orange;color:white;text-decoration:none;padding:0.8em;'>Buy</a></td>
+				<td><button onclick='show(1200,"Total War")'>Buy</button></td>
 			</tr>
 			<tr>
 				<td>
@@ -175,7 +175,7 @@
 				</td>
 				<td>Action,Fantasy,</td>
 				<td>3000</td>
-				<td><a href='buy.html' style='background:orange;color:white;text-decoration:none;padding:0.8em;'>Buy</a></td>
+				<td><button onclick='show(3000,"God Eater 2")'>Buy</button></td>
 			</tr>
 		</table>
 		<!-- modal -->
@@ -194,8 +194,8 @@
 			<tr>
 				<td><label>Gender:</label></td>
 				<td>
-					Male<input type='radio' name='gender' value='Male' class='gender'>
-					Female<input type='radio' name='gender' value='Female' class='gender'>
+					Male<input type='radio' name='gender' value='Male' onclick = 'gender(this.value)'>
+					Female<input type='radio' name='gender' value='Female'  onclick = 'gender(this.value)'>
 				</td>
 			</tr>
 			<tr>
@@ -205,7 +205,7 @@
 			<tr>
 				<td><label>Payment Type:</label></td>
 				<td>
-					<select name='Payment Type' class='information'>
+					<select name='Payment Type'>
 						<option>Metrobank</option>
 						<option>BPI</option>
 						<option>Western Union</option>
@@ -217,7 +217,7 @@
 			<tr>
 				<td><label>Console Type:</label></td>
 				<td>
-					<select name='Console:'>
+					<select name='Console'>
 						<option>Playstation 4</option>
 						<option>XBOX 360</option>
 						<option>PC</option>
@@ -234,8 +234,23 @@
 	<script>
 		var ctr = 0;
 		var value;
-		function show(val)
+		var title;
+		var gamet;
+		function gender(g)
 		{
+
+			if (g==='Male')
+			{
+				title = 'Mr.';
+			}else
+			{
+				title = 'Mrs.';
+			}
+		}
+
+		function show(val,gt)
+		{
+			gamet = gt;
 			value = val; 
 			var modal = document.getElementsByClassName('modal')[0];
 			var black = document.getElementsByClassName('black')[0];
@@ -256,8 +271,8 @@
 		{
 			var information = document.getElementsByClassName('information');
 			var message = '';
-			
-			
+				
+			message +=  title + document.getElementsByClassName('information')[0].value + ' you bought '+ gamet +"\n";
 			message +=  document.getElementsByTagName('select')[0].name + ':' +document.getElementsByTagName('select')[0].value+"\n";
 			message += document.getElementsByTagName('select')[1].name + ':'+document.getElementsByTagName('select')[1].value+"\n";
 			
