@@ -74,7 +74,7 @@
 				</td>
 				<td>Comedy,Violence,Action,War,Open World,Sci-fi</td>
 				<td>2000</td>
-				<td><button onclick='show()'>Buy</button></td>
+				<td><button onclick='show(2000)'>Buy</button></td>
 			</tr>
 			<tr>
 				<td colspan='2'>
@@ -184,21 +184,28 @@
 				<td><input type='button' value='Close X' onclick='show()' class='close'></td>
 			</tr>
 			<tr>
-				<td><label for='name'>Name:</label></td>
-				<td><input type='text' name='Name'></td>
+				<td><label>Name:</label></td>
+				<td><input type='text' name='Name' class='information'></td>
 			</tr>
 			<tr>
-				<td><label for='name'>Address:</label></td>
-				<td><input type='text' name='Address'></td>
+				<td><label>Address:</label></td>
+				<td><input type='text' name='Address' class='information'></td>
 			</tr>
 			<tr>
-				<td><label for='age'>Quantity</label></td>
-				<td><input type='number' min='1' max='100' name='Quantity'></td>
-			</tr>
-			<tr>
-				<td><label for='gender'>Payment Type:</label></td>
+				<td><label>Gender:</label></td>
 				<td>
-					<select name='Payment Type'>
+					Male<input type='radio' name='gender' value='Male' class='gender'>
+					Female<input type='radio' name='gender' value='Female' class='gender'>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Quantity</label></td>
+				<td><input type='number' min='1' max='100' name='Quantity' class='information'></td>
+			</tr>
+			<tr>
+				<td><label>Payment Type:</label></td>
+				<td>
+					<select name='Payment Type' class='information'>
 						<option>Metrobank</option>
 						<option>BPI</option>
 						<option>Western Union</option>
@@ -208,9 +215,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td><label for='gender'>Console Type:</label></td>
+				<td><label>Console Type:</label></td>
 				<td>
-					<select>
+					<select name='Console:'>
 						<option>Playstation 4</option>
 						<option>XBOX 360</option>
 						<option>PC</option>
@@ -226,8 +233,10 @@
 	</body>
 	<script>
 		var ctr = 0;
-		function show()
+		var value;
+		function show(val)
 		{
+			value = val; 
 			var modal = document.getElementsByClassName('modal')[0];
 			var black = document.getElementsByClassName('black')[0];
 			if (ctr === 0)
@@ -245,15 +254,21 @@
 		}
 		function display()
 		{
-			var inputs = document.getElementsByTagName('input');
-			var message;
+			var information = document.getElementsByClassName('information');
+			var message = '';
 			
-			document.getElementsByTagName('select').value;
 			
-			for (var i = 0; i<inputs.length;i++)
+			message +=  document.getElementsByTagName('select')[0].name + ':' +document.getElementsByTagName('select')[0].value+"\n";
+			message += document.getElementsByTagName('select')[1].name + ':'+document.getElementsByTagName('select')[1].value+"\n";
+			
+			for (var i=0; i<information.length; i++)
 			{
-				message += inputs[i].getAttribute('name')+":"+inputs[i].value+"\n";
+				
+				message += information[i].name + ':' + information[i].value+"\n";
 			}
+			
+			message +=  'Total:'+ (document.getElementsByName('Quantity')[0].value * value) + "\n"
+			
 			alert(message);
 		}
 	</script>
